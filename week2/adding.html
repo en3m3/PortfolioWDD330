@@ -18,12 +18,10 @@
         <script>
             function calcButton(outputContainer,calcFunction) {
                 const resultContainer = document.getElementById(outputContainer);
-                const firstNumber = document.getElementById("firstNumber").value;
-                const secondNumber = document.getElementById("secondNumber").value;
-                console.log(outputContainer);
-                console.log(calcFunction);
-                console.log(firstNumber);
-                console.log(secondNumber);
+                const firstNumber = document.getElementById("firstNumber").value.replace(/^0+/, '');
+                const secondNumber = document.getElementById("secondNumber").value.replace(/^0+/, '');
+                document.getElementById("firstNumber").value =firstNumber;
+                document.getElementById("secondNumber").value =secondNumber;
                 let result = calcFunction(firstNumber,secondNumber);
                 resultContainer.innerHTML = result;
             }
