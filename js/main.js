@@ -17,6 +17,5 @@ const links = [
         listItems += "</li>";
       });
     document.getElementById(listContainer).innerHTML = listItems;
-    console.log("done");
     }
 
