@@ -120,9 +120,19 @@ const sortByYearsLived = inventors.sort(function(inventorA,inventorB) {
 // const category = document.querySelector('.mw-category');
 // const links = Array.from(category.querySelectorAll('a'));
 
+//this one would be easy but when I get the array from wikipedia it just copies the object empty 
+
 // 7. sort Exercise
 // Sort the people alphabetically by last name
-
+const sortByLastName = inventors.sort(function(inventorA,inventorB) {
+    if(aYears > inventorB.last) {
+        return 1
+    }else if(inventorA.last < inventorB.last) {
+        return -1;
+    }else {
+        return 0;
+    }
+});
 // 8. Reduce Exercise
 // Sum up the instances of each of these
 const data = [
@@ -141,6 +151,12 @@ const data = [
 'car',
 'truck'
 ];
+
+const dataSum = data.reduce(function(obj, item) {
+  obj[item] = (obj[item] || 0) + 1; // since it uses key-value pairs if it hits the same key it will add one to the value, if it is the first occurence it defaults to 0
+  return obj;   
+}, {});
+
 </script>
 </body>
 </html>
