@@ -1,0 +1,14 @@
+.tic-tac-space {
+    border: 1px solid #000;
+    height: 50px;
+    width: 50px;
+    display: block;
+    margin: auto;
+}
+
+.info {
+    text-align: center;
+    font-size: 32px;
+    padding: 5px 20px;
+    margin: 5px 0;
+}
