@@ -1,8 +1,8 @@
 import * as hike from './hikes.js';
-import * as utils from './util.js';
+import * as util from './util.js';
 
 
 (function() {
-var parameters = utils.getURLParameters();
+var parameters = util.getURLParameters();
 
 })
