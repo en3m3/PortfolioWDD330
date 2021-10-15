@@ -3,4 +3,4 @@ import {getURLParameters} from './util.js';
 
 var parameters = getURLParameters();
 
-console.log(parameters;
+console.log(parameters);
