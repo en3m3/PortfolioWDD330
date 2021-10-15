@@ -6,7 +6,7 @@ function getHikeData() {
 
 function getSingleHikeByName(name) {
 
-    
+     
 
     return hikeInfo;
 }
