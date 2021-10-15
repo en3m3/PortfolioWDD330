@@ -1,7 +1,7 @@
 import hikeList from './hikes.js';
 
 function getHikeData() {
-    return JSON.parse(hikeList);
+    return hikeList;
 }
 
 function getSingleHikeByName(name) {

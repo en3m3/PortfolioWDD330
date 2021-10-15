@@ -7,6 +7,7 @@ function getURLParameters() {
 }
 
 function buildList(hikeData) {
+    console.log(hikeData);
     let htmlList = "<ul>";
     hikeData.forEach(hike => {
         htmlList += "<li>";
