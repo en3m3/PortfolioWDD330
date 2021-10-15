@@ -6,4 +6,4 @@ var parameters = getURLParameters();
 var hikeData = getHikeData();
 var buildHikeList = buildList(hikeData);
 
-document.getElementById('hikeContent');
+document.getElementById('hikeContent').innerHTML=buildHikeList;
