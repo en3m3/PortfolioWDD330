@@ -1,7 +1,9 @@
-import hikeList from './hikes.js';
-import {getURLParameters} from './util.js';
+import {getURLParameters, buildList} from './util.js';
+import {getHikeData, getSingleHikeByName} from '../model/data.js';
 
 var parameters = getURLParameters();
 
-console.log(parameters);
-console.log(hikeList);
+var hikeData = getHikeData();
+var buildHikeList = buildList(hikeData);
+
+document.getElementById('hikeContent');

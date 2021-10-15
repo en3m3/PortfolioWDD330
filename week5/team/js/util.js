@@ -6,5 +6,17 @@ function getURLParameters() {
     return params;
 }
 
+function buildList(hikeData) {
+    let htmlList = "<ul>";
+    hikeData.forEach(hike => {
+        htmlList += "<li>";
+        htmlList += `Distance: ${hike.distance}`;
+        htmlList += `Difficulty: ${hike.difficulty}`;
+        htmlList += `<h2>${hike.name}</h2>`;
 
-export {getURLParameters};
+        htmlList += "</li>";
+    });
+    return htmlList;
+}
+
+export {getURLParameters, buildList};
