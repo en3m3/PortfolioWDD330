@@ -10,7 +10,7 @@ function getSingleHikeByName(name) {
 
     return hikeInfo;
 }
-
+ 
 
 
 export {getHikeData, getSingleHikeByName};

@@ -1,6 +1,6 @@
 //create an array of hikes
 const hikeList = [
-    {
+    { 
       name: "Bechler Falls",
       imgSrc: "falls.jpg",
       imgAlt: "Image of Bechler Falls",
