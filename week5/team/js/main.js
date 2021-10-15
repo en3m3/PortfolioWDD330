@@ -3,6 +3,6 @@ import * as util from './util.js';
 
 
 (function() {
-var parameters = getURLParameters();
+var parameters = util.getURLParameters();
 
 })
