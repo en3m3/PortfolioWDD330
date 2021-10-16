@@ -2,9 +2,9 @@
 import * as Todo from './ToDos.js';
 
 (function(){
-    var todo = new Todo('todo',{
+    var todoObj = new Todo('todo',{
     
 
     });
-    console.log(todo);
+    console.log(todoObj);
 });
