@@ -15,4 +15,4 @@ Todo.prototype = function()
     addTask = function(){
 
     }
-};
+}; 
