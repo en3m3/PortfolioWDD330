@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Week 2 Notes | Erik Moffett WDD 330 Team Activity</title>
+        <link rel="stylesheet" href="../css/styles.css">
+    </head>
+    <body>
+        <input type="text" id="firstNumber" value="0" />
+        <input type="text" id="secondNumber" value="0" />
+        <button type="submit" id="sumNumber" onclick="calcButton('result',numberSum)">Number Sum</button>
+        <button type="submit" id="addNumbers" onclick="calcButton('result',addNumbers)">+</button>
+        <button type="submit" id="subNumbers" onclick="calcButton('result',subNumbers)">-</button>
+        <button type="submit" id="multiplyNumbers" onclick="calcButton('result',multNumbers)">x</button>
+        <div id="result"></div>
+
+        <script>
+            function calcButton(outputContainer,calcFunction) {
+                const resultContainer = document.getElementById(outputContainer);
+                const firstNumber = document.getElementById("firstNumber").value.replace(/^0+/, '');
+                const secondNumber = document.getElementById("secondNumber").value.replace(/^0+/, '');
+                document.getElementById("firstNumber").value =firstNumber;
+                document.getElementById("secondNumber").value =secondNumber;
+                let result = calcFunction(firstNumber,secondNumber);
+                resultContainer.innerHTML = result;
+            }
+
+            function numberSum(num1,num2) {
+                let sum = 0;
+                if(isNaN(num1) || num1 === null) {return "Not a valid number"};
+                for(let i=1;i<=Number(num1);i++){
+                    sum += i;
+                }
+                return sum;
+            }
+
+            function addNumbers(num1, num2) {
+                if(isNaN(num1) || isNaN(num2) || num1 === null || num2 === null) {
+                    return "Not a valid number"
+                }
+                let sum = Number(num1) + Number(num2);    
+                return sum;
+            }
+            function subNumbers(num1, num2) {
+                if(isNaN(num1) || isNaN(num2) || num1 === null || num2 === null) {return "Not a valid number"};
+                let difference = Number(num1) - Number(num2);    
+                return difference;
+            }
+            function multNumbers(num1, num2) {
+                if(isNaN(num1) || isNaN(num2) || num1 === null || num2 === null) {return "Not a valid number"};
+                let product = Number(num1) * Number(num2);    
+                return product;
+            }
+
+        </script>
+    </body>
+</html>

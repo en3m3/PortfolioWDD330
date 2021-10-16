@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Week 2 | Erik Moffett WDD 330 Portfolio</title>
+        <link rel="stylesheet" href="../css/styles.css">
+    </head>
+    <body>
+        <h1>Week 2 Notes - Novice to Ninja</h1>
+        <h2>Chapter 2 - Programming Basics</h2>
+        <p>Primative Data Types: number, boolean, string, symbol, undefined, null </p>
+        <p>Non-primatives are objects</p>
+        <p>typeof on a variable returns data type</p>
+        <p>primatives are dynamic. They can adjust types automatically. </p>
+        <p>Sometimes the types being dynamic can cause undesired results. It's best to treat them strict to prevent issues.</p>
+        <p>There are many ways to convert variables to different data types but some are more hacky and should be avoided when possible.</p>
+        <p>Undefined are usually things that haven't been declared and null is assigned in the code.</p>
+        <p>NaN stands for not a number. It is the result when methods or operations that can only be used on numbers has a value in it that is not a number</p>
+        <p>Always false falsys: empty string literals('',"",``),0,-0,NaN,false,null,undefined</p>
+        <p>Bitwise has uses, but typically are not used except in resource heavy programs that require good performance, mostly games. The only time I've ever seen them used was to replace some code that was causing a performance bottleneck in the main game loop</p>
+        <hr>
+        <h2>Chapter 3 - Arrays, Logic, and Loops</h2>
+        <p>Not much new in this chapter for me. It is always best to use the built in methods to do things like sort and reverse. The algorithms for them have been coded to use the best Big O version possible which always helps performance</p>
+        <p>Sets are like arrays except they do not allow duplicate values to exist within it and are not indexed. </p>
+        <p>Weak sets and weak maps help with the memory leak issues caused by an object being in one being deleted and not being garbage collected. Weak sets and maps garbage collect any reference to the object preventing the leak</p>
+        <hr>
+        <h2>Chapter 4 - Functions</h2>
+        <p>callbacks are used by passing functions as an argument to a function then use it within the function.</p>
+        <p>array iterators use callbacks to add some useful utilities to arrays.</p>
+        <hr>
+        <h2>Team Exercise</h2>
+            <a href="adding.html">team coding</a>
+        <hr>
+        <h2>Weekly Standup</h2>
+        <ol>
+            <li><em>What did I do since the last meeting?</em><br>
+            - Read chapters 2, 3, and 4. Met with my team for the first time and coded the activity with them. 
+            - At work I've been working on a few bugs that have been fairly difficult to address.  The first is the minifier code we use is having trouble with the first rule in the bootstrap-grid.css, it seems it has something to do with the @ and some character next to it. I believe it is @-ms-viewport {} with a comment prior to it.
+            - Another issues is two of our plugins are injecting css into the code but they are being placed inside of a div and style tags aren't supposed to be children to divs and most likely other tags
+            - The last thing I have been working on for a few weeks is an issue with the html5 video not displaying the closed captions in firefox. The tag itself looks right and works in all other browsers so I'm guessing we must have some firefox specific code on our site that is affecting it.
+            </li>
+            <li><em>What am I going to do next?</em><br>
+            - I would like to play around more with callback functions. I have programmed around them a lot but I have never been comfortable enough to use them. I know they are useful so I would like to get to that point.
+            - I would also like to add some CSS to my portfolio so it doesn't look like it does currently.
+            </li>
+            <li><em>What are my blockers?</em><br>
+            - One of the problems I run into fairly What did I do since the last meeting?
+            - Read chapters 2, 3, and 4. Met with my team for the first time and coded the activity with them. - At work I've been working on a few bugs that have been fairly difficult to address. The first is the minifier code we use is having trouble with the first rule in the bootstrap-grid.css, it seems it has something to do with the @ and some character next to it. I believe it is @-ms-viewport {} with a comment prior to it. - Another issues is two of our plugins are injecting css into the code but they are being placed inside of a div and style tags aren't supposed to be children to divs and most likely other tags - The last thing I have been working on for a few weeks is an issue with the html5 video not displaying the closed captions in firefox. The tag itself looks right and works in all other browsers so I'm guessing we must have some firefox specific code on our site that is affecting it.
+            What am I going to do next?
+            - I would like to play around more with callback functions. I have programmed around them a lot but I have never been comfortable enough to use them. I know they are useful so I would like to get to that point.
+            What are my blockers?
+            - One of the problems I run into fairly consistently in JS and also Python, is the loose-typed data types. I much prefer the stricter languages when it comes to variables because it helps me catch issues a lot earlier on. in JS and also Python, is the loose-typed data types. I much prefer the stricter languages when it comes to variables because it helps me catch issues a lot earlier on. 
+        </ol>
+    </body>
+</html>

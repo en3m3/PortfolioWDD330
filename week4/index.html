@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Week 4 | Erik Moffett WDD 330 Portfolio</title>
+        <link rel="stylesheet" href="../css/styles.css">
+    </head>
+    <body>
+        <h1>Week 4 Notes - Novice to Ninja</h1>
+
+        <h2>Chapter 8 - Forms</h2>
+            <p>There are multiple ways to reference a form and form controls. getElementsByTagName, dot notation, and square brracket notation</p>
+            <p>there are a few form methods that can be useful in interacting with the form. Common ones are submit, reset, and action </p>
+            <p>change wont trigger when focus is lost unless the value changes, blur will always trigger when focus is lost.</p>
+            <p>use frontend and backend validation. Frontend can be bypassed or changed.</p>
+            <p>for instant validation use keyup event</p>
+            <p>disabling the submit button until frontend validation is good</p>
+
+        <h2>Chapter 12 - Object Oriented Programming</h2>
+            <p>encapsulation allows the internal workings of objects to be hidden leaving specific interfacing methods to interact with the objects</p>
+            <p>polymorphism allows processes to be used by multiple objects with the ability to be overridden for more specific implementation</p>
+            <p>inheritance allows objects to extend another object bringing with it all of it's methods and properties. The inherited properties and methods can be modified or overriden as well as new ones being added</p>
+            <p>javascript uses prototypes for creating classes. ES6 introduced classes but they still use prototyping in the background</p>
+            <p>classes are similar to inheritance except the class itself is not an object and an instance of it must be created to use it</p>
+            <p>constructor functions are called when a new instance of an object is created. </p>
+            <p>built-in constuctors: Object, Array, Function, String, Number, Boolean, RegExp, Date</p>
+            <p>can use literals instead of new for the built-in constructors</p>
+            <p>capitalize class names</p>
+            <p>classes are preferred over constructor statements</p>
+            <p>static methods are called from the class not an instance of the class</p>
+            <p>prototype is live. If new properties or methods are added all instances of it will also gain them</p>
+            <p>starting a variable with an underscore denotes a private property of a class. Getter and setter methods should be used to prevent access outside of the object to the private properties.</p>
+            <p>defineProperty() allows you to set the property discriptors</p>
+            <p>create allows to make a copy of an object</p>
+            <p>there are various ways to keep the this in a nested function, setting this to another variable such as that, self, _this, use bind(this), instead of a foreach loop use for-of pattern, use an arrow function</p>
+            <p>you can 'borrow' functions by setting them to a variable then using call()</p>
+
+            <h2>Chapter 15 - Modern Javascript</h2>
+                <p>libraries help reduce repetition by creating abstractions that make performing the actions easier</p>
+                <p>libraries have pros and cons. Adds utility most of the time but they can get large and increase difficulty due to needing to learn how to use it</p>
+                <p>modules are self contained code that can be easily be reused and only the api needs to be understood to useit</p>
+                <p>Node.js supported modules prior to ES6</p>
+                <p>transpiling allows use of newest js releases but maintains sometimes not yet supported code</p>
+
+        <h2>Team Exercise</h2>
+            <a href="teamActivity.html">team coding</a>
+        <hr>
+        <h2>Weekly Standup</h2>
+        <ol>
+            <li><em>What did I do since the last meeting?</em><br>
+                -Read the assigned readings<br/>
+                -Looked more into class constructors and sending defaults for the team activity.<br/>
+                -They changed the way we were doing our scrum meetings at work so I had my first retrospective and sprint review
+            </li>
+            <li><em>What am I going to do next?</em>
+                -I enjoyed figuring out all the ways to handle objects interacting with listeners and ran into the problems with this being out of scope inside of the method of class because it was called by an eventlistener. So I want to look into managing scope more this week.
+            </li>
+            <li><em>What are my blockers?</em><br>
+                I think the biggest issues I had this week were dynamically creating DOM elements from js and adding inline css to them in js.<br/>
+                I haven't done much of it in the past. I think I need to look into encapsulating my classes to have a more generic interface when interacting with everything else in the site<br/>
+                I couldn't get the touchend event to trigger. I even tried it on my phone. It said it should work on my browser so I'm not too sure what I did wrong. When I switched to click it worked fine.
+            </li>
+        </ol>
+    </body>
+</html>

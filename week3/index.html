@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Week 3 | Erik Moffett WDD 330 Portfolio</title>
+        <link rel="stylesheet" href="../css/styles.css">
+    </head>
+    <body>
+        <h1>Week 3 Notes - Novice to Ninja</h1>
+
+        <h2>Object Methods article: this</h2>
+        <p>This used in an object's method refers to the object</p>
+        <p>Arrow functions do not have their own this so if used it will refer to the this of the outer normal function's this. Which is a useful trait of arrow functions that has many uses.</p>
+        <p>If you set up a method that returns this in an object it will return the object, this does not work as a property.</p>
+        <h2>Chapter 5 - Objects</h2>
+        <p>Object literals wrap properties and methods</p>
+        <p>Naming conventions camelcase thisObject and snake this_object</p>
+        <p>Looping through an object in a for loop you can display all the properties and functions as well as their values</p>
+        <p>Adding/changing/deleting new properties is the same as adding a new key-value pair. </p>
+        <p>Objects can be nested in other objects</p> 
+        <hr>
+
+        <h2>Chapter 6 - Document Object Model</h2>
+        <p>ways to get DOM objects: getElementById , getElementsByClassName , getElementsByTagName , querySelector and querySelectorAll</p>
+        <p>query selector is good for very specific targeting. Returns a non-live node/nodelist </p>
+        <p>queryselector() returns first occurence only, queryselectorall() returns all matching DOM elements</p>
+        <p>childrenNodes returns all children nodes, including text nodes of the element children only returns the children elements ignoring text nodes</p>
+        <p>firstChild on a node list returns first child node lastChild returns last</p>
+        <p>parentNode property returns the parent</p>
+        <p>nextSibling and previousSibling returns the adjacent nodes either before or after</p>
+        <p>nodeValue returns the text if used on a text node</p>
+        <p>className with replace all classes on a node classList you can add and remove specific classes</p>
+        <p>createElement creates a new node of the type you sent as a parameter</p>
+        <p>appendChild adds the node as a child of the element</p>
+        <p>textContent doesn't allow html, innerHTML does. if you aren't using html textContent is less resource intensive</p>
+        <p>getElementBy* methods return a live node which means if changed it will change the element in the DOM. </p>
+        <p>style property changes css</p>
+        <hr>
+
+        <h2>Chapter 7 - Events</h2>
+        <p>inline event handlers are attributes in html tags such as onclick</p>
+        <p>inline breaks the concept of keeping html and js separate</p>
+        <p>addEventListener is prefered way now</p>
+        <p>event parameter is automatically sent from a event listener which contains information about the event, such as scrollbar offset after an onscroll event is triggered</p>
+        <p>mouse and touch events need to both be considered with current technology</p>
+        <p>if you will be removing an eventListener to not use an anonymous function when you add it, you will need to reference the function to remove it. </p>
+        <p>Event handling, capturing/bubbling/delegation</p>
+        <p>Capturing is useful when you have outside code you want to run before handling the event</p>
+        <p>Bubbling resolves from the element triggering the event up to the parents</p>
+        <p>Capturing propagate downwards from the parents to the children</p>
+        <p>You can use bubbling and capturing together if you add more listeners</p>
+        <p>Using stopPropagation() can prevent events from triggering much higher up in the bubbling to not fire which can cause problems if you aren't careful.</p>
+        <hr>
+
+        <h2>Team Exercise</h2>
+            <a href="teamActivity.html">team coding</a>
+        <hr>
+        <h2>Weekly Standup</h2>
+        <ol>
+            <li><em>What did I do since the last meeting?</em><br>
+                - Read the chapters on "this", DOM, and events.
+                - Team Activity, using filters with arrays
+                - Tried to convert my calculator program from last week to use callbacks
+            </li>
+            <li><em>What am I going to do next?</em>
+                I still want to get practice callbacks. On top of that I would like to look up some tutorials I can do to practice 
+                bubbling and capturing as well as using stopPropagation properly that will not cause problems with other events firing.
+            </li>
+            <li><em>What are my blockers?</em><br>
+                Not too much blocking me, but I do feel like my lack of practice with the topics I plan to go over next week
+                will come back to haunt me if I don't deal with it now.
+                At work I'm still having issues with CORS. It's a weird case because we have our sites calling our media
+                api to pull videos but the api and the videos/vtt files are different. I did get the closed captioning to work
+                on firefox when I am on the site that the api resides, but now it is saying that the api server can't get the 
+                vtt file because it's missing an allow-origin that will give it permission, I have been trying to figure out 
+                which server the CORS permission needs to be set on.
+            </li>
+        </ol>
+    </body>
+</html>
