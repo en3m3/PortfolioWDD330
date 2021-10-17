@@ -1,4 +1,3 @@
-//create an array of hikes
 const hikeList = [
     { 
       name: "Bechler Falls",
@@ -34,4 +33,4 @@ const hikeList = [
     }
   ];
 
-  export default {hikeList};
+  export default hikeList;

@@ -1,9 +1,15 @@
-import {getURLParameters, buildList} from './util.js';
-import {getHikeData, getSingleHikeByName} from '../model/data.js';
+import {getURLParameters, buildList, singleHikeView} from './util.js';
+import hikeList from '../model/hikes.js';
 
 var parameters = getURLParameters();
 
-var hikeData = getHikeData();
-var buildHikeList = buildList(hikeData);
-
+if(parameters['action']) {
+    var buildHikeList =  singleHikeView(parameters['action'], hikeList);
+    console.log('buildHikeList '+ buildHikeList);
+    if(!buildHikeList) {
+        var buildHikeList = buildList(hikeList);
+    }
+} else {
+    var buildHikeList = buildList(hikeList);
+}
 document.getElementById('hikeContent').innerHTML=buildHikeList; 
