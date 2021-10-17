@@ -13,7 +13,7 @@ export function Todo(container, props) {
         }
 
         this.buildTodoBox = function(props) {
-
+ 
         }
 
         this.removeTask = function(taskId) {
