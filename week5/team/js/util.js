@@ -6,21 +6,25 @@ function getURLParameters() {
     return params;
 }
 
+function createMenu(hikeData) {
+    let htmlMenu = "<div class='hike-menu'>"
+    htmlMenu += `<a href="?action=">Home</a>`;
+    hikeData.forEach(hike => {
+        let action = hike.name.replace(/\s+/g, '');
+        htmlMenu += `<a href="?action=${action}">${hike.name}</a>`;
+    });
+    htmlMenu += "</div>";
+    return htmlMenu    
+}
 
 function buildList(hikeData) {
     let imgPath = "//byui-cit.github.io/cit261/examples/";
-    let htmlList = "<div class='hike-menu'>"
-    htmlList += `<a href="?action=">Home</a>`;
+    let htmlList = "<ul class='all-hikes'>";
     hikeData.forEach(hike => {
         let action = hike.name.replace(/\s+/g, '');
-        htmlList += `<a href="?action=${action}">${hike.name}</a>`;
-    });
-    htmlList += "</div>";
-    htmlList += "<ul class='all-hikes'>";
-    hikeData.forEach(hike => {
         htmlList += "<li>";
         htmlList += `<h2>${hike.name}</h2>`;
-        htmlList += `<img src="${imgPath}${hike['imgSrc']}" alt="${hike['imgAlt']}" >`;
+        htmlList += `<a href="?action=${action}"><img src="${imgPath}${hike['imgSrc']}" alt="${hike['imgAlt']}" ></a>`;
         htmlList += `<p><strong>Distance:</strong> ${hike['distance']}</p>`; 
         htmlList += `<p><strong>Difficulty:</strong> ${hike['difficulty']}</p>`;   
         htmlList += "</li>";
@@ -30,13 +34,7 @@ function buildList(hikeData) {
 
 function singleHikeView(action, hikeData){
     let imgPath = "//byui-cit.github.io/cit261/examples/";
-    let htmlList = "<div class='hike-menu'>"
-    htmlList += `<a href="?action=">Home</a>`;
-    hikeData.forEach(hike => {
-        let action = hike.name.replace(/\s+/g, '');
-        htmlList += `<a href="?action=${action}">${hike.name}</a>`;
-    });
-    htmlList += "</div>";
+    let htmlList="";
     hikeData.forEach(hike => {
         let hikeName = hike['name'].replace(/\s+/g, '');
         if(action === hikeName) {
@@ -62,4 +60,4 @@ function singleHikeView(action, hikeData){
     
 }
 
-export {getURLParameters, buildList, singleHikeView};
+export {getURLParameters, buildList, singleHikeView, createMenu};
