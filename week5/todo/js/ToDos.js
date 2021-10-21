@@ -1,4 +1,7 @@
-export function Todo(container, props) {
+import Modal from "./Modal.js";
+
+export class Todo {
+    constructor(container = "todo", props) {
         this.version = '1.0.0';
         this.errors = [];
         this.taskList = [];
@@ -6,9 +9,14 @@ export function Todo(container, props) {
         this.colorScheme = props['colorScheme'];
         this.height = props['height'] || '500px';
         this.width = props['width'] || '400px';  
-
+        const myModal = new Modal({
+            
+        });
         this.addTask = function(props){
-            let newTask = new Task;
+            let newTask = new Task({
+                title: "First Task",
+                content: "you must make a first task",
+            });
             this.taskList.add(newTask);
         }
 
@@ -24,13 +32,24 @@ export function Todo(container, props) {
 
         }
 
-        this.completeTask = function(taskId) {
-
+        this.toggleTask = function(taskId) {
+            taskList.forEach(task => {
+                if(task.id === taskId) {
+                    task.completed = !task.completed;
+                }
+                
+            });
         }
 
         this.loadTasks = function(dataSource) {
 
         }
+
+        this.editTask = function(taskId) {
+            createTaskModal() 
+        }
+
+
 
         this.setColorScheme = function() {
             switch(this.colorScheme) {
@@ -44,14 +63,15 @@ export function Todo(container, props) {
 
                 break;
             }
-        }
-        
-        
-}; 
+        }  
+    }
+}
 
-function Task(props) {
-    this.id = new Date.now();
-    this.content = props.content || "";
-    this.completed = props.completed || false;
-    
+export class Task {
+    constructor(props) {
+        this.id = new Date.now();
+        this.title = props.title || "";
+        this.content = props.content || "";
+        this.completed = props.completed || false; 
+    }
 }
