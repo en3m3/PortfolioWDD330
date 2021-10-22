@@ -24,12 +24,42 @@ h1 {
 
 .modal-body {
     background-color: hsl(0deg 0% 100%);
-    padding: 15px 100px;
+    padding: 15px;
     border-radius: 5px;
-    max-width: min-content;
+    max-width: max-content;
     margin: auto;
 }
 
 input {
     margin: 5px;
+}
+
+label {
+    min-width: fit-content;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+#closeButton {
+    text-align: center;
+    border-radius: 30px;
+    padding: 5px 9px;
+    font-size: 1.2em;
+    float: right;
+    position: relative;
+    top: -12px;
+    right: -12px;
+    background-color: #fff;
+    color: #888;
+    transition: 0.6s all;
+    cursor: pointer;
+}
+
+#closeButton:hover,
+#closeButton:focus {
+    background-color: #888;
+    color: #fff;
 }

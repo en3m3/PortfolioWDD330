@@ -9,15 +9,14 @@ export class Todo {
         this.colorScheme = props['colorScheme'];
         this.height = props['height'] || '500px';
         this.width = props['width'] || '400px';  
-        const myModal = new Modal({
-            
-        });
+        this.myModal = newTask();
+        console.log(this.myModal);
         this.addTask = function(props){
-            let newTask = new Task({
+            let task = new Task({
                 title: "First Task",
                 content: "you must make a first task",
             });
-            this.taskList.add(newTask);
+            this.taskList.add(task);
         }
 
         this.buildTodoBox = function(props) {
@@ -46,9 +45,40 @@ export class Todo {
         }
 
         this.editTask = function(taskId) {
-            createTaskModal() 
+            createTaskModal({
+
+            }) 
         }
 
+        function newTask() {
+            let taskModal = new TaskModal({
+                id: Date.now(),
+                title: "Add New Task",
+                content: "",
+                completed: false,
+                inputs: [{
+                    type: "text",
+                    id: "taskTitle",
+                    name: "taskTitle",
+                    value: " ",
+                    placeholder: "Enter Task's Title",                   
+                },{
+                    type: "text",
+                    id: "taskDescription",
+                    name: "taskDescription",
+                    value: " ",
+                    placeholder: "Enter Task's Descriptiption",                  
+                },{
+                    type: "checkbox",
+                    id: "taskComplete",
+                    name: "taskComplete",
+                    value: false,
+                    placeholder: "Completed?",                  
+                }],
+                footer: " ",
+            });
+            return taskModal;
+        }
 
 
         this.setColorScheme = function() {
@@ -67,11 +97,6 @@ export class Todo {
     }
 }
 
-export class Task {
-    constructor(props) {
-        this.id = new Date.now();
-        this.title = props.title || "";
-        this.content = props.content || "";
-        this.completed = props.completed || false; 
-    }
+class TaskModal extends Modal {
+
 }
