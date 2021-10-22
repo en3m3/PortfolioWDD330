@@ -1,4 +1,4 @@
-import Modal from "./Modal.js";
+import Modal from "./modal.js";
 
 export class Todo {
     constructor(container = "todo", props) {
