@@ -11,6 +11,7 @@ export class Todo {
         this.height = props['height'] || '500px';
         this.width = props['width'] || '400px';  
         this.taskModal = new TaskModal();
+        this.modal = this.taskModal.container;
         this.buildTodoBox();
 
     }
@@ -18,6 +19,7 @@ export class Todo {
     buildTodoBox = function(props) {
         const todoManager = document.createElement("div");
         todoManager.id = "todoManager";
+        todoManager.innerHTML = `<h2 class="todo-title">ToDo Manager</h2>`
         this.container.appendChild(todoManager);
         let taskArray = getData();
         if(taskArray.length > 0  ) {
@@ -50,15 +52,17 @@ export class Todo {
     }
 
     addControlEvents = function() {
+        var that = this;
         document.getElementById("addNew").addEventListener("click",function(){
-            this.newTask();
+            that.taskModal.show();
+            // this.newTask();
         });
         document.getElementById("clear").addEventListener("click",function(){
-            this.empty();
+            that.empty();
         });
     }
 
-    newTask = function(prps) {
+    newTask = function() {
 
     }
 

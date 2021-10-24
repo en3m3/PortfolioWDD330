@@ -9,7 +9,7 @@ export default class Modal {
         this.domContainer.appendChild(modal);
         this.container = this.domContainer.querySelector("#modal-container");
         this.hide();
-        this.show();
+        // this.show();
     }
         remove() {
             // this.container.remove();
@@ -116,7 +116,7 @@ export default class Modal {
             return shadow;       
         };
         show = function() {
-            document.getElementById("modal-container").style.display = "fixed";
+            document.getElementById("modal-container").style.display = "block";
         };
         hide = function() {
             document.getElementById("modal-container").style.display = "none";

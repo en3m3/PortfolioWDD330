@@ -1,3 +1,13 @@
+h1, h2, h3 {
+    padding: 0;
+    margin: 0;
+}
+
+.todo-title {
+    padding: 5px 15px;
+    border-bottom: 2px solid #000;
+}
+
 .todo-controls > div {
     display: inline;
     margin: 0 5px;
