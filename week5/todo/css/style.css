@@ -10,11 +10,25 @@ h1, h2, h3 {
 
 .todo-controls > div {
     display: inline;
-    margin: 0 5px;
+    margin: 0px 5px;
     cursor: pointer;
+    text-align: right;
 }
 
 #todoManager {
     border: 1px solid #000000;
     max-width: fit-content;
+}
+
+.todo-controls {
+    display: flex;
+    justify-content: end;
+    padding: 2.5px 0;
+    font-size: 25px;
+}
+
+#addNew {
+    position: relative;
+    top: 0px;
+    font-size: 26px;
 }

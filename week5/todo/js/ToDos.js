@@ -10,10 +10,39 @@ export class Todo {
         this.colorScheme = props['colorScheme'];
         this.height = props['height'] || '500px';
         this.width = props['width'] || '400px';  
-        this.taskModal = new TaskModal();
+        this.taskModal = new TaskModal({
+            title: "Add Task",
+            footer: "",
+            inputs: [{
+            type: "text",
+            id: "taskTitle",
+            name: "taskTitle",
+            value: " ",
+            placeholder: "Task Title",
+            },{
+                type: "text",
+                id: "taskDescription",
+                name: "taskDescription",
+                value: " ",
+                placeholder: "Task Description",
+            },{
+                type: "checkbox",
+                id: "complete",
+                name: "complete",
+                value: " ",
+                placeholder: "Is Complete?",
+            },
+
+            ]
+        });   
         this.modal = this.taskModal.container;
+        this.taskModal.hide();
         this.buildTodoBox();
 
+    }
+
+    openModal(task = "") {
+        this.taskModal.show();
     }
 
     buildTodoBox = function(props) {
@@ -54,7 +83,7 @@ export class Todo {
     addControlEvents = function() {
         var that = this;
         document.getElementById("addNew").addEventListener("click",function(){
-            that.taskModal.show();
+            that.newTask();
             // this.newTask();
         });
         document.getElementById("clear").addEventListener("click",function(){
@@ -63,7 +92,7 @@ export class Todo {
     }
 
     newTask = function() {
-
+        this.openModal();
     }
 
     removeTask = function(taskId) {
@@ -113,5 +142,15 @@ export class Todo {
 }
 
 class TaskModal extends Modal {
+
+}
+
+class Task {
+    constructor(props) {
+        id = new Date.now();
+        title = props["title"] || "";
+        description = props["description"] || "";
+        complete = props["complete"] || false;
+    }
 
 }

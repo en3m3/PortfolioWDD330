@@ -1,5 +1,6 @@
 export default class Modal {
     constructor(props) {
+        let that = this;
         if(!props) {
             props = {};
         };
@@ -7,7 +8,11 @@ export default class Modal {
         this.domContainer = document.getElementById(props["domContainer"]) || document.getElementsByTagName("body")[0];
         this.loadStyles();
         this.domContainer.appendChild(modal);
+        document.getElementById("closeButton").addEventListener("click", function() {
+            that.hide();
+        });
         this.container = this.domContainer.querySelector("#modal-container");
+
         this.hide();
         // this.show();
     }
@@ -38,7 +43,6 @@ export default class Modal {
             modalBody.appendChild(this.addBody(props));
             modalBody.appendChild(this.addFooter(props));
             body.appendChild(modalBody);
-            
             return body;
         }
 
@@ -117,9 +121,14 @@ export default class Modal {
         };
         show = function() {
             document.getElementById("modal-container").style.display = "block";
+
         };
         hide = function() {
-            document.getElementById("modal-container").style.display = "none";
+            document.getElementById("modal-container").style.display = "none";         
         };
+
+        remove = function() {
+            document.getElementById("modal-container").remove();
+        }
 
 }
