@@ -1,100 +1,111 @@
 import Modal from "./modal.js";
+import {getData, storeTask} from "./ls.js";
 
 export class Todo {
-    constructor(container = "todo", props) {
+    constructor(props) {
         this.version = '1.0.0';
         this.errors = [];
         this.taskList = [];
-        this.container = document.getElementById(container);
+        this.container = document.getElementById(props["container"] || "todo");
         this.colorScheme = props['colorScheme'];
         this.height = props['height'] || '500px';
         this.width = props['width'] || '400px';  
-        this.myModal = newTask();
-        console.log(this.myModal);
-        this.addTask = function(props){
-            let task = new Task({
-                title: "First Task",
-                content: "you must make a first task",
-            });
-            this.taskList.add(task);
-        }
+        this.taskModal = new TaskModal();
+        this.buildTodoBox();
 
-        this.buildTodoBox = function(props) {
- 
-        }
-
-        this.removeTask = function(taskId) {
-
-        }
-
-        this.sortTaskList = function() {
-
-        }
-
-        this.toggleTask = function(taskId) {
-            taskList.forEach(task => {
-                if(task.id === taskId) {
-                    task.completed = !task.completed;
-                }
-                
-            });
-        }
-
-        this.loadTasks = function(dataSource) {
-
-        }
-
-        this.editTask = function(taskId) {
-            createTaskModal({
-
-            }) 
-        }
-
-        function newTask() {
-            let taskModal = new TaskModal({
-                id: Date.now(),
-                title: "Add New Task",
-                content: "",
-                completed: false,
-                inputs: [{
-                    type: "text",
-                    id: "taskTitle",
-                    name: "taskTitle",
-                    value: " ",
-                    placeholder: "Enter Task's Title",                   
-                },{
-                    type: "text",
-                    id: "taskDescription",
-                    name: "taskDescription",
-                    value: " ",
-                    placeholder: "Enter Task's Descriptiption",                  
-                },{
-                    type: "checkbox",
-                    id: "taskComplete",
-                    name: "taskComplete",
-                    value: false,
-                    placeholder: "Completed?",                  
-                }],
-                footer: " ",
-            });
-            return taskModal;
-        }
-
-
-        this.setColorScheme = function() {
-            switch(this.colorScheme) {
-                case 'light':
-
-                break;
-                case 'dark':
-
-                break;
-                default:
-
-                break;
-            }
-        }  
     }
+
+    buildTodoBox = function(props) {
+        const todoManager = document.createElement("div");
+        todoManager.id = "todoManager";
+        this.container.appendChild(todoManager);
+        let taskArray = getData();
+        if(taskArray.length > 0  ) {
+            taskArray.forEach(task => {
+                todoManager.appendChild(addTaskHTML(task));
+
+            });
+        }
+        todoManager.appendChild(this.addControls());
+        this.addControlEvents();
+
+    }
+
+    addTaskHTML = function(task) {
+        let taskNode = document.createElement("div");
+        taskNode.classList.add("todo-item");
+        taskNode.innerHTML = `
+        <div class="complete"><input type="checkbox" value="${task.complete}"></div>
+        <div class="title">${task.title}</div><div class="description">${task.description}</div>
+        <div class="editTask" data-id="${task.id}">E</div><div class="deleteTask" data-id="${task.id}">-</div>`;
+        return taskNode;
+    }
+
+    addControls = function() {
+        let taskNode = document.createElement("div");
+        taskNode.classList.add("todo-controls");
+        taskNode.innerHTML = `<div class="complete"></div><div id="clear">x</div><div id="addNew">+</div>`;
+
+        return taskNode;
+    }
+
+    addControlEvents = function() {
+        document.getElementById("addNew").addEventListener("click",function(){
+            this.newTask();
+        });
+        document.getElementById("clear").addEventListener("click",function(){
+            this.empty();
+        });
+    }
+
+    newTask = function(prps) {
+
+    }
+
+    removeTask = function(taskId) {
+
+    }
+
+    sortTaskList = function() {
+
+    }
+
+    toggleTask = function(taskId) {
+        taskList.forEach(task => {
+            if(task.id === taskId) {
+                task.complete = !task.complete;
+            }
+            
+        });
+    }
+
+    loadTasks = function(dataSource) {
+
+    }
+
+    editTask = function(taskId) {
+        createTaskModal({
+
+        }) 
+    }
+
+    empty = function(){};
+
+
+
+    setColorScheme = function() {
+        switch(this.colorScheme) {
+            case 'light':
+
+            break;
+            case 'dark':
+
+            break;
+            default:
+
+            break;
+        }
+    }  
 }
 
 class TaskModal extends Modal {
