@@ -12,7 +12,7 @@ export class Todo {
         this.width = props['width'] || '400px';  
         this.taskModal = new TaskModal({
             title: "Add Task",
-            footer: "",
+            footer: " ",
             inputs: [{
             type: "text",
             id: "taskTitle",

@@ -49,7 +49,7 @@ export default class Modal {
         addHeading = function(props) {
             let title = "Modal Title";
             if(props["title"] != undefined) {           
-                let title = props["title"]
+                title = props["title"]
             }
             const headingNode = document.createElement("div");
             headingNode.classList.add("modal-header");
