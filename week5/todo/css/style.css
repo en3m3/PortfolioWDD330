@@ -1,0 +1,10 @@
+.todo-controls > div {
+    display: inline;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+#todoManager {
+    border: 1px solid #000000;
+    max-width: fit-content;
+}
