@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Week 7 | Erik Moffett WDD 330 Portfolio</title>
+        <link rel="stylesheet" href="../css/styles.css">
+    </head>
+    <body>
+        <h1>Week 7 Notes </h1>
+        <h2>Novice to Ninja Chapter 11 - Further Functions</h2>
+        <p>function's length property returns the number of parameters recieves</p>
+        <p>call is used to cinvoke a function</p>
+        <p>apply is similar but it sends the parameters as an array. Spred in ES6 makes it uncessesary</p>
+        <p>omemoization is the caching of function results. Really nice to prevent repeating resource heavy functions</p>
+        <p>you can add properties to functions(yeah for everything having a prototype object</p>
+        <p>IIFE functions are a good way to run functional code while maintaining a separate scope for the variables and objects. Clean up after yourself. Also for initialization</p>
+        <p>Throw your use strict into a IIFE function to prevent it from breaking 3rd party code</p>
+        <p>functions can rewrite themselves. Pretty cool, you can have an initial check then determine which should be used the rest of the runtime</p>
+        <p>properties are lost if a function is redefined.</p>
+        <p>init time branching good for changing code based on support of certain features</p>
+        <p>Recursive functions, bleh, really useful in certain circumstances</p>
+        <p>callbacks...callbacks are a function sent as a parameter that gets called when the function is done. Helps forces a run order without making the program wait</p>
+        <p>callbacks can get messy if used heavily</p>
+        <p>promises can help simplify callback abuse</p>
+        <p>promise->pending->resolved or rejected</p>
+        <p>results from resolved and rejected go to then(). resolved is the first parameter, rejected is the second.</p>
+        <p>catch can also be used to handle errors.</p>
+        <p>promise chain. makes promises easy to read</p>
+        <p>async functions are similar to promises but they use await</p>
+        <p>closure is when the inner function is returned by the outer function allowing access to everything in it</p>
+        <p>the variable that is assigned to the outer function can now access both </p>
+        <p>generator functions- don't run the code inside of them, they create an iterator that adds the next method which runs the code</p>
+        <p>also adds yield that is similar to return but the value of yield is remembered after for the next() call</p>
+        <p>pure function- depends on only values provided to it(no outside values), doesn't change any values outside of the function, same variables = same results</p>
+
+        <h2>Novice to Ninja Chapter 13 - Ajax</h2>
+        <p>resource requesting from a server</p>
+        <p>CORS - controls which domains can recieve data from the server. Not always super consistant across browsers</p>
+        <p>ajax allows for new data to be requested and accessed without having to reload the page(server actions are only done before it gets to the client side)</p>
+        <p>Fetch APO standardized a newer/"better" version of XMLHttpRequest object</p>
+        <p>response object, headers, url, redirected bool, type</p>
+        <p>blob object is raw data, returned when a file is requested. </p>
+        <p>headers pass additional information. set and append can add additional items</p>
+        <p>fetch API has the FormData interface which makes it easier to submit form information via Ajax</p>
+        <p>results of from the form submission ends up in body</p>
+        <p>you can append key calue pairs to a formdata object</p>
+        <p>fetch API is being developed still so it is subject to change. The jQuery ajax() function is a good more stable alternative</p>
+        <p>$.ajax(url).done(output)</p>
+
+
+
+        <h2>Todo Exercise</h2>
+            <a href="../week5/todo/index.html">To-Do Exercise</a>
+        <hr>
+        <h2>Weekly Standup</h2>
+        <ol>
+            <li><em>What did I do since the last meeting?</em><br>
+                Worked on my Todo assignment a lot. Reserched a bit more into local storage for it, it's relatively easy as long as 
+                key value pairs are understood well enough. I also tried a lot harder to keep the project more of a module because it seemed like
+                the idea behind it might make sense to be reused.
+            </li>
+            <li><em>What am I going to do next?</em>
+                Next week we are going to study a bit of AJAX, which I'm excited about. It's another area that I've worked with, but always wished I knew more.
+            </li>
+            <li><em>What are my blockers?</em><br>
+                Just a few errors that I am having a hard time understanding the cause of. For example, in my class methods I have
+                two methods declared the same way. name = function() {}; using the anonymous function notation. It works on all of them
+                except one. For some reason it is giving me an error that it is not a function. It may have to do with the instance of another
+                class being created in the first line of the method.
+            </li>
+        </ol>
+    </body>
+</html>
