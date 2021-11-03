@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Week 8 | Erik Moffett WDD 330 Portfolio</title>
+        <link rel="stylesheet" href="../css/styles.css">
+    </head>
+    <body>
+        <h1>Week 8 Notes </h1>
+        <h2>HTML5 & CSS3 FOR THE REAL WORLD: 2ND EDITION Chapter 8- CSS3 Transforms and Transitions</h2>
+        <p>The transform property is a really convenient way to add animation to your html elements</p>
+        <p>Also supports 3d</p>
+        <p>Older browsers prefer webkit or the ms kit to work, so it's nice to add for compatability</p>
+        <p>Translate- moves the element on the x and y planes (sometimes can have strange behavior when the page loads. Sometimes you will see it jump to the new position once the css loads)</p>
+        <p>Transforms don't work on inline elements (they do on inline-block however)</p>
+        <p>Scale- increases/decrease size on x and/or y axis (looks really nice as a slight mouseover effect)</p>
+        <p>transforms don't cause recalculation of space (it wont change any other elements)</p>
+        <p>rotate- rotates on x or y (rotate3d can change z as well), skew- skews the element on x, y, or z</p>
+        <p>transform-origin changes the point that the transformation changes relative to</p>
+        <p>order of transforms matter</p>
+        <p>The internet explorer is pretty terrible with rotate. It uses an old direct X image transform filter. It also has bad performance</p>
+        <p>transition property adds animation between states (like active, hover, and focus) and sets settings for how to animate (speed, duration, motion curve, which elements to animate, and so on)</p>
+        <p>for transition to work there must be a midpoint in the value of the property. Anything with a set number, like 30px -> 60px, colors calculate the midpoint color so they work as well.</p>
+        <p>values like auto, visible/hidden, all the display property values, things like border style or font-family. Pretty much anything along those lines</p>
+        <p>graceful degredation allows older browers to still display the final result of a transform just without the animation in between</p>
+        <p>There are preset timing-functions that changes how much time to give different parts of the animation. Things like ease-in and ease-out, or the default linear. You can get even more specific and use a bezier curve or use steps</p>
+        <p>steps are the most like frames</p>
+        <p>translation-delay is exactly what it sounds like. Negative delays starts the animation at a different position but still begins right away</p>
+        <p>to make an animation it requires 2 rules to be created, the animation and it's settings then the @keyframes that holds the actual animation</p>
+        <p>animation fill mode tells the animation what to do when it finishes or starts(like reverse, infinite, forward)</p>
+        <p>play-state can pause and unpause the animation</p>
+
+        <h2>HTML5 & CSS3 FOR THE REAL WORLD: 2ND EDITION Chapter 12- Canvas, SVG, and Drag and Drop</h2>
+        <p>The innerHTML of canvas show if canvas isn't supported</p>
+        <p>Set canvas height and weight inline. Since it is an HTML5 object CSS will only affect it's container.</p>
+        <p>WebGl is the library used to draw in 3d. It's support is a little iffy still</p>
+        <p>to draw you need to set the stroke and fill colors. There are also shapes that can be drawn with their own methods like strokeRect.</p>
+        <p>top left is 0,0 bottom right is max x and y</p>
+        <p>canvas uses CORS</p>
+        <p>no accessibility with canvas</p>
+        <p>SVGs are vectorbased XLM coded images. They preserve 100% of their quality when resized. They also tend to be smaller sized</p>
+        <p>SVGs are available in the DOM, more limited if loaded through an image tag.</p>
+        <p>canvas typically runs faster, since it doesn't have to write DOM elements to the DOM. It also has more ability to manipulate what is in it.</p>
+        <p>drag and drop API. Only supported by the main desktop browsers.</p>
+        <p>you can set elements to draggable="true"(draggable isn't a boolean. You have to add the =true)</p>
+        <p>DataTransfer object contains the type of data and the data of the object being dragged</p>
+        <p>drop and dragover are triggered by the dragged object</p>
+        <h2>Team Exercise</h2>
+            <a href="">Team Exercise</a>
+        <hr>
+        <h2>Weekly Standup</h2>
+        <ol>
+            <li><em>What did I do since the last meeting?</em><br>
+            </li>
+            <li><em>What am I going to do next?</em>
+
+
+            </li>
+            <li><em>What are my blockers?</em><br>
+
+            </li>
+        </ol>
+    </body>
+</html>
