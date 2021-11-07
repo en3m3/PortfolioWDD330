@@ -67,16 +67,16 @@
             <li><em>What am I going to do next?</em>
                  I think I'm going to continue to focus on programming with a component mentality, keeping the component code completely independant of the procedural part of the code. 
                  Specifically I will need to work on the problems I ran into this week relating to having the procedural code wait for the promise in the class's fetch to finish.
-                 I also want to look into accessibility and canvas. I know it mentioned that because it is drawn into the element it doesn't meed accessibility guidelines, but I
-                 want to reseach a bit to see if any solutions have been added, created, or proposed.
+                 I also want to look into accessibility and canvas. I know it mentioned that because it is drawn into the element it doesn't meet accessibility guidelines, but I
+                 want to research a bit to see if any solutions have been added, created, or proposed.
             </li>
             <li><em>What are my blockers?</em><br>
-                On the team excercise my team failed to meet again.  Elizabeth has been the only one responding to messages so it has been a little frustrating the last few weeks. Natalia's new
+                On the team exercise  my team failed to meet again. Elizabeth has been the only one responding to messages so it has been a little frustrating the last few weeks. Natalia's new
                 calling required her to be there when we had our previous time set, so ever since that it has been a problem. The block I ran into personally was my fetch was within a functions
                 of my class so the object was created, then I called the fetch function, after that I went to use the response data to generate html, but in an attempt to allow more power to
                 procedural code in main I had the class methods being called in main. The side effect was that the fetch didn't finish before the call to generate the HTML was called which gave
                 me a nice undefined put in the container.  To fix it I changed the approach of my class to more of an interface mentality by limiting the amount of methods in the class that are 
-                exposed to the user.  Making that change allowed me to call the function to generate the html from within the then() guaranteeing that the data would either have been recieved or
+                exposed to the user.  Making that change allowed me to call the function to generate the html from within the then() guaranteeing that the data would either have been received  or
                 rejected prior to it's use. 
             </li>
         </ol>
