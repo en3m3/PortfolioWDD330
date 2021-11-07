@@ -47,18 +47,37 @@
         <p>DataTransfer object contains the type of data and the data of the object being dragged</p>
         <p>drop and dragover are triggered by the dragged object</p>
         <h2>Team Exercise</h2>
-            <a href="">Team Exercise</a>
+            <a href="./team/index.html">Team Exercise</a>
         <hr>
         <h2>Weekly Standup</h2>
         <ol>
-            <li><em>What did I do since the last meeting?</em><br>
+            <li><em>What did I do since the last meeting?</em>
+                Did the reading. I didn't do any of the exercises. I have used animations, transitions, and svgs a decent amount at work and previously. I have also done a bit at work with
+                canvas, like creating particle effects like falling snow for example. The main thing I would like to jump into more with canvas would be memory management. I ran in to a few issues
+                when there were too many particles moving.  I think it was good up until around 20,000, but even with reusing the particles by moving them when they go off the screen to the top it
+                wasn't as smooth as I would have liked.
+                Did a bunch of research into promises. I've used callbacks a good deal, and I have used async and await as well, but promises always seemed like they would end up
+                as the mainstay for asynchronous functions so I wanted to get better at using them.  There were a few hiccups I ran into switching over from callbacks to promises in 
+                the team excercise, I will go over those in the blocker question. 
+                At work I have been been working on creating a decent Wiki for our custom Wordpress theme as well as being placed in charge of updating the theme and training the other
+                developers for having accessibility be heavily supported. Our clients are mostly dentists and we have been getting calls asking whether we are ADA compliants. I'm 
+                the sole developer for our theme now, so I've been researching the ADA guidelines a lot as well as finding solutions that would be maintainable for our 2000+ websites using
+                our theme.  It has been a bit challenging, but I'm enjoying the ADA stuff because many of the newer web development features have been in the area of accessibility.
             </li>
             <li><em>What am I going to do next?</em>
-
-
+                 I think I'm going to continue to focus on programming with a component mentality, keeping the component code completely independant of the procedural part of the code. 
+                 Specifically I will need to work on the problems I ran into this week relating to having the procedural code wait for the promise in the class's fetch to finish.
+                 I also want to look into accessibility and canvas. I know it mentioned that because it is drawn into the element it doesn't meed accessibility guidelines, but I
+                 want to reseach a bit to see if any solutions have been added, created, or proposed.
             </li>
             <li><em>What are my blockers?</em><br>
-
+                On the team excercise my team failed to meet again.  Elizabeth has been the only one responding to messages so it has been a little frustrating the last few weeks. Natalia's new
+                calling required her to be there when we had our previous time set, so ever since that it has been a problem. The block I ran into personally was my fetch was within a functions
+                of my class so the object was created, then I called the fetch function, after that I went to use the response data to generate html, but in an attempt to allow more power to
+                procedural code in main I had the class methods being called in main. The side effect was that the fetch didn't finish before the call to generate the HTML was called which gave
+                me a nice undefined put in the container.  To fix it I changed the approach of my class to more of an interface mentality by limiting the amount of methods in the class that are 
+                exposed to the user.  Making that change allowed me to call the function to generate the html from within the then() guaranteeing that the data would either have been recieved or
+                rejected prior to it's use. 
             </li>
         </ol>
     </body>
