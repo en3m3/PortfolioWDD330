@@ -10,10 +10,6 @@ img {
     margin: auto;
 } 
 
-.marvelCarousel img {
-    /* max-width: 300px; */
-}
-
 .actorCarousel {
     max-width: 75%;
     margin: auto;   
