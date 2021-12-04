@@ -43,6 +43,10 @@ const links = [
       label: "Week 11",
       url: "week11/index.html"
     },
+    {
+      label: "Week 12",
+      url: "week12/index.html"
+    },
   ]
 
   function createLinks(listContainer, links) {
