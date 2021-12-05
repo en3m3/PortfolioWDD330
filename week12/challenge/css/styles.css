@@ -1,36 +1,179 @@
-img {
+* {
     box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    max-width: 320px;
+    margin: auto;
+}
+
+img {
     max-width: 100%;
     height: auto;
 }
 
 
-.marvelCarousel {
+.movieCarousel {
     max-width: 90%;
     margin: auto;
+    padding: 3%;
 } 
 
+.marvelCarousel {
+    padding: 3%;  
+}
+
+.marvelCarousel .slick-track > div {
+    max-width: 100%;
+}
+
+.marvelCarousel .slick-list {
+    max-width: calc(100% - 100px);
+    margin: auto;
+}
+
+.marvelCarousel img {
+    margin: auto;
+    padding: 0 2.5%;
+    max-width: 100%;
+}
+ 
 .actorCarousel {
-    max-width: 75%;
+    max-width: 80%;
     margin: auto;   
     text-align: center;
     font-size: 1.5em;
 }
 
 .actorCarousel img {
-    padding: 15px 15px 0;
+    padding: 15px 2.5% 0;
+    width: 100%;
+    
+
 }
+
+.actorCarousel .slick-track > div {
+    max-width: 16%;
+    margin: auto;
+}
+
 
 .slick-arrow.slick-prev::before,
 .slick-arrow.slick-next::before  {
-    padding: 15px;
     color: rgb(22, 21, 21);
+    font-size: 5rem;
+    top: 0;
+    right: 20px;
 }
 
-.slick-arrow.slick-prev {
-    left: -50px;
+.slick-arrow.slick-prev {   
+    width: 40px;
+    height: 40px;
+    z-index: 1;
+    left: 0;
+
+}
+.slick-arrow.slick-next {
+    width: 40px;
+    height: 40px;
+    z-index: 1;
+    right: 35px;
+}
+
+.actorCarousel .slick-arrow.slick-prev,
+.actorCarousel .slick-arrow.slick-next {
+    top: calc(50% - 80px);
+}
+
+.actorCarousel .slick-arrow.slick-prev {
+    left: -75px;
+}
+
+.actorCarousel .slick-arrow.slick-next  {
+    right: -35px;
 }
 
 .carouselItem {
     cursor: pointer;
+}
+
+
+@media screen and (min-width: 480px) {
+    body {
+        max-width: 320px;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    body {
+        max-width: 480px;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    body {
+        max-width: 900px;
+    }
+    .slick-arrow.slick-next {
+        width: 40px;
+        height: 40px;
+        z-index: 1;
+        right: 25px;
+    }
+    .actorCarousel .slick-arrow.slick-prev {
+        left: -75px;
+    }
+    
+    .actorCarousel .slick-arrow.slick-next  {
+        right: 25px;
+    }
+    
+}
+
+@media screen and (min-width: 1280px) {
+    body {
+        max-width: 1080px;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    body {
+        max-width: 1400px;
+    }
+    
+} 
+
+@media screen and (min-width: 1920px) {
+    body {
+        max-width: 1700px;
+    }
+    .slick-arrow.slick-prev {   
+        left: -30px;
+    
+    }
+    .slick-arrow.slick-next {
+        right: -30px;
+    }    
+}
+
+@media screen and (max-width: 1000px) {
+    .slick-arrow.slick-prev::before,
+    .slick-arrow.slick-next::before  {
+        font-size: 4rem;
+        right: 10px;
+    }    
+
+    .actorCarousel .slick-arrow.slick-prev::before {
+        right: 35px;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .actorCarousel .slick-arrow.slick-prev::before {
+        right: 25px;
+    }
+    .actorCarousel .slick-arrow.slick-next::before {
+        right: -2px;
+    }
 }
