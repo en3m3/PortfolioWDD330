@@ -172,7 +172,7 @@ function buildCastData(data) {
         [].forEach.call(document.getElementsByClassName("actorCarousel")[0].getElementsByClassName("carouselItem"), actor => {
             $(actor).on("click", function(e) { 
                 let character = e.currentTarget.dataset.characterName;
-                fetch(`https://developer.marvel.com/v1/public/characters/${character}`)
+                fetch(`//gateway.marvel.com/v1/public/characters?apikey=${comicApiKey}&nameStartsWith=shang`)
                 .then(response => response.json())
                 .then(data => console.log(data));
             });
