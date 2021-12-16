@@ -205,15 +205,15 @@ function checkResults(results, fullName) {
   seachResults.innerHTML += resultsHTML;  
 
   document.querySelectorAll("#searchResults>div:last-of-type").on("click", function(e) { 
-      console.log("clicked");
-      let characterId = e.currentTarget.dataset.characterId;
-        seachResults.innerHTML ="";
-        fetch(`//gateway.marvel.com/v1/public/characters/${characterId}?apikey=${comicApiKey}`)
-        .then(response => response.json())
-        .then(response => generateDetails(response.data.results))
-          .catch(e=>{
-            seachResults.innerHTML ="No Results Found In Comic Database...";
-          });      
+      // console.log("clicked");
+      // let characterId = e.currentTarget.dataset.characterId;
+      //   seachResults.innerHTML ="";
+      //   fetch(`//gateway.marvel.com/v1/public/characters/${characterId}?apikey=${comicApiKey}`)
+      //   .then(response => response.json())
+      //   .then(response => generateDetails(response.data.results))
+      //     .catch(e=>{
+      //       seachResults.innerHTML ="No Results Found In Comic Database...";
+      //     });      
         });       
 }
 
