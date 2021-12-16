@@ -117,65 +117,106 @@ function getCastData(id) {
 } 
 
 function buildCastData(data) {
-    console.log(data); 
-    var cast = JSON.parse(data).cast;
-    let castHTML = `<div class="actorCarousel">`;
-    cast.forEach(actor => {
-        castHTML += `<div class="carouselItem" data-character-name="${actor.character}">
-        <img src="`;
-        if(!actor.profile_path) {
-            castHTML += `./img/no-image.jpg`;
-        } else{
-        castHTML += `https://image.tmdb.org/t/p/w500/${actor.profile_path}`;
-        }
-        castHTML += `" alt="${actor.character} - ${actor.original_name}" />
-        <p>${actor.character}<br/>${actor.original_name}</p>
-        </div>`;
-    });
-    castHTML += `</div>`;
-    console.log(castHTML);
+  const seachResults = document.getElementById("searchResults");
+  seachResults.innerHTML = "";
+  let characterResults = new Array();
+  var cast = JSON.parse(data).cast;
+  let castHTML = `<div class="actorCarousel">`;
+  cast.forEach(actor => {
+      let charactersPlayed = actor.character.split(" / ");
+      castHTML += `<div class="carouselItem">
+      <div data-character-name="${actor.character}"><img src="`;
+      if(!actor.profile_path) {
+          castHTML += `./img/no-image.jpg`;
+      } else{
+      castHTML += `https://image.tmdb.org/t/p/w500/${actor.profile_path}`;
+      }
+      castHTML += `" alt="${actor.character} - ${actor.original_name}" /></div>`;
+      charactersPlayed.forEach(character => {
+          castHTML += `<div data-character-name="${character}">${character}</div>`;
+      });
+      
+      castHTML += `</div>`;
+  });
+  castHTML += `</div>`;
 
-    document.getElementById("activeDetails").innerHTML = castHTML;   
-    setTimeout(() => {
-        $(".actorCarousel").slick({
-            arrows: true,
-            infinite: true,
-            slidesToShow: 5,
-            slidesToScroll: 1,
-            lazyLoad: 'ondemand',
-            responsive: [
-              {
-                breakpoint: 1024,
-                settings: {
-                  slidesToShow: 3,
-                  slidesToScroll: 1
-                }
-              },
-              {
-                breakpoint: 600,
-                settings: {
-                  slidesToShow: 2,
-                  slidesToScroll: 1
-                }
-              },
-              {
-                breakpoint: 480,
-                settings: {
-                  slidesToShow: 1,
-                  slidesToScroll: 1
-                }
+  document.getElementById("activeDetails").innerHTML = castHTML;   
+  setTimeout(() => {
+      $(".actorCarousel").slick({
+          arrows: true,
+          infinite: true,
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          lazyLoad: 'ondemand',
+          responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1
               }
+            },
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+              }
+            }
 
-            ]
-          });
-        }, 500);     
-        [].forEach.call(document.getElementsByClassName("actorCarousel")[0].getElementsByClassName("carouselItem"), actor => {
-            $(actor).on("click", function(e) { 
-                let character = e.currentTarget.dataset.characterName;
-                fetch(`//gateway.marvel.com/v1/public/characters?apikey=${comicApiKey}&nameStartsWith=shang`)
-                .then(response => response.json())
-                .then(data => console.log(data));
-            });
-            
+          ]
         });
+      }, 500);     
+      [].forEach.call(document.getElementsByClassName("actorCarousel")[0].querySelectorAll("div[data-character-name]:not([data-character-name='']"), actor => {
+          $(actor).on("click", function(e) { 
+              seachResults.innerHTML ="";
+              let character = e.currentTarget.dataset.characterName;
+              let aliases = character.split(" / ");
+              aliases.forEach(alias => {
+                fetch(`//gateway.marvel.com/v1/public/characters?apikey=${comicApiKey}&nameStartsWith=${alias}`)
+                .then(response => response.json())
+                .then(response => checkResults(response.data.results,character))
+                  .catch(e=>{
+                    seachResults.innerHTML ="No Results Found In Comic Database...";
+                  });      
+              }); 
+          });
+          
+      });
+}
+
+
+function checkResults(results, fullName) {
+  const seachResults = document.getElementById("searchResults");
+  let resultsHTML ="";
+  results.forEach(characterResult => {
+    resultsHTML += `<div data-character-id="${characterResult.id}">    
+    <img src="${characterResult.thumbnail.path}.${characterResult.thumbnail.extension}" alt="${characterResult.name}" />
+    <div class="characterName">${characterResult.name}</div>
+    </div>`
+  });
+  seachResults.innerHTML += resultsHTML;  
+
+  document.querySelectorAll("#searchResults>div:last-of-type").on("click", function(e) { 
+      console.log("clicked");
+      let characterId = e.currentTarget.dataset.characterId;
+        seachResults.innerHTML ="";
+        fetch(`//gateway.marvel.com/v1/public/characters/${characterId}?apikey=${comicApiKey}`)
+        .then(response => response.json())
+        .then(response => generateDetails(response.data.results))
+          .catch(e=>{
+            seachResults.innerHTML ="No Results Found In Comic Database...";
+          });      
+        });       
+}
+
+function generateDetails(characterData) {
+  console.log(data);
 }

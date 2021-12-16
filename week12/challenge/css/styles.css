@@ -59,6 +59,25 @@ img {
 }
 
 
+#searchResults img {
+    max-height: 300px;
+    width: auto;
+    max-width: 100%;
+}
+
+#searchResults {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#searchResults > div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 30%;
+    padding: 3%;
+}
+
 .slick-arrow.slick-prev::before,
 .slick-arrow.slick-next::before  {
     color: rgb(22, 21, 21);
